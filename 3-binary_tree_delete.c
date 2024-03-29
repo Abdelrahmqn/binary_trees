@@ -13,8 +13,17 @@ void binary_tree_delete(binary_tree_t *tree)
 	return;
 	}
 
+	if (tree->left != NULL)
+	{
 	free(tree->left);
+	tree->left = NULL;
+	}
+
+	if (tree->right != NULL)
+	{
 	free(tree->right);
-    free(tree->parent);
+	tree->right = NULL;
+	}
+
 	free(tree);
 }

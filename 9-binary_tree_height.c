@@ -11,34 +11,15 @@
 */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t left_height, right_height;
+	size_t left_height = 0;
+	size_t right_height = 0;
 
 	if (tree == NULL)
 	{
-	return (0);
+		return (0);
 	}
-	else
-	{
-	left_height = binary_tree_height(tree->left);
-	right_height = binary_tree_height(tree->right);
-	return (my_max(left_height, right_height) + 1);
-	}
-}
-/**
-* my_max - maxes greater heighter...etc}
-* @a: is a greater than b?
-* @b: is b greater than a?
-*
-* Return: any the winner
-*/
-size_t my_max(size_t a, size_t b)
-{
-	if (a >= b)
-	{
-	return (a);
-	}
-	else
-	{
-	return (b);
-	}
+
+	left_height = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	right_height = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (left_height > right_height ? left_height : right_height);
 }

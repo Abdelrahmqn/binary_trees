@@ -6,7 +6,7 @@
 * @tree: is a pointer to the root node of the tree to traverse
 * @func: is a pointer to func to call nodes.
 */
-void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
+void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (tree == NULL || func == NULL)
 	{
@@ -15,8 +15,8 @@ void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
 
 	if (tree != NULL)
 	{
-		binary_tree_preorder(tree->left, func);
-	func(tree->n);
-		binary_tree_preorder(tree->right, func);
+		binary_tree_inorder(tree->left, func);
+		func(tree->n);
+		binary_tree_inorder(tree->right, func);
 	}
 }

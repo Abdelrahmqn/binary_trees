@@ -2,6 +2,7 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "stddef.h": "c",
-        "binary_trees.h": "c"
+        "binary_trees.h": "c",
+        "type_traits": "c"
     }
 }
